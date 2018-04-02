@@ -24,6 +24,8 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'bundler-audit', require: false
+  gem 'brakeman', require: false
 end
 
 group :development do
@@ -35,7 +37,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'scss_lint', require: false
-  gem 'bundler-audit', require: false
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
