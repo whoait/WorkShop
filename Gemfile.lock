@@ -83,6 +83,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.0.0)
       concurrent-ruby (~> 1.0)
+    iniparse (1.4.4)
     io-like (0.3.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -105,6 +106,9 @@ GEM
     nio4r (2.3.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    overcommit (0.44.0)
+      childprocess (~> 0.6, >= 0.6.3)
+      iniparse (~> 1.4)
     public_suffix (3.0.2)
     puma (3.11.3)
     rack (2.0.4)
@@ -217,6 +221,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.3.18, < 0.6.0)
+  overcommit
   puma (~> 3.7)
   rails (~> 5.1.6)
   rspec-rails
