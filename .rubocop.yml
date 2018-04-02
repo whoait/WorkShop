@@ -15,10 +15,7 @@ Style/Documentation:
   Enabled: false
 
 Metrics/LineLength:
-  Exclude:
-    - config/puma.rb
-    - config/environments/*
-    - config/initializers/*
+  Enabled: false
 
 Metrics/BlockLength:
   Exclude:
