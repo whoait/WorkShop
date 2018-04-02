@@ -44,10 +44,14 @@ GEM
       io-like (~> 0.3.0)
     arel (8.0.0)
     bindex (0.5.0)
+    brakeman (4.2.1)
     builder (3.2.3)
     bullet (5.7.5)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11.0)
+    bundler-audit (0.6.0)
+      bundler (~> 1.2)
+      thor (~> 0.18)
     byebug (10.0.2)
     capybara (2.18.0)
       addressable
@@ -83,6 +87,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.0.0)
       concurrent-ruby (~> 1.0)
+    iniparse (1.4.4)
     io-like (0.3.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -105,9 +110,14 @@ GEM
     nio4r (2.3.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    overcommit (0.44.0)
+      childprocess (~> 0.6, >= 0.6.3)
+      iniparse (~> 1.4)
     public_suffix (3.0.2)
     puma (3.11.3)
     rack (2.0.4)
+    rack-proxy (0.6.4)
+      rack
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
     rails (5.1.6)
@@ -167,6 +177,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    scss_lint (0.57.0)
+      rake (>= 0.9, < 13)
+      sass (~> 3.5.5)
     selenium-webdriver (3.11.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
@@ -198,6 +211,10 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webpacker (3.4.1)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -208,7 +225,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  brakeman
   bullet
+  bundler-audit
   byebug
   capybara
   chromedriver-helper
@@ -217,10 +236,12 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.3.18, < 0.6.0)
+  overcommit
   puma (~> 3.7)
   rails (~> 5.1.6)
   rspec-rails
   sass-rails (~> 5.0)
+  scss_lint
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
@@ -228,6 +249,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  webpacker
 
 BUNDLED WITH
    1.16.1
