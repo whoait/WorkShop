@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :developer do
-    email 'MyString'
+    email 'hoa@gmail.com'
   end
 end

@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :programming_language do
-    name 'MyString'
+    name 'Ruby'
   end
 end
