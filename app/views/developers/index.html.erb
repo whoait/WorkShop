@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Developers</h1>
-<!-- search -->
-<%= form_for  @developer_search_form, url: developers_path, method: :get do |f| %>
-<%= f.label "Email" %>
-<%= f.text_field :email %>
-<%= f.label "Language" %>
-<%= f.select(:language_id, Language.pluck(:code, :id), { include_blank: true, select: 3 } ) %>
-<%= f.label "Programing" %>
-<%= f.select(:programming_language_id, ProgrammingLanguage.pluck(:name, :id), { include_blank: true }) %> 
+<!-- search  form-->
+  <%= form_for  @developer_search_form, url: developers_path, method: :get do |f| %>
+    <%= f.label "Email" %>
+    <%= f.text_field :email %>
+    <%= f.label "Language" %>
+    <%= f.select(:language_id, Language.pluck(:code, :id), { include_blank: true} ) %>
+    <%= f.label "Programing" %>
+    <%= f.select(:programming_language_id, ProgrammingLanguage.pluck(:name, :id), { include_blank: true }) %> 
 
-<%= f.submit "Search" %>
-<% end %>
+    <%= f.submit "Search" %>
+  <% end %>
 <table>
   <thead>
     <tr>
@@ -29,7 +29,7 @@
         <td><%= developer.programming_languages.pluck(:name).join(",") %></td>
         <td><%= link_to 'Show', developer %></td>
         <td><%= link_to 'Edit', edit_developer_path(developer) %></td>
-        <td><%= link_to 'Destroy', developer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', developer, method: :delete, data: { confirm: 'Are you sure delete it?' } %></td>
       </tr>
     <% end %>
   </tbody>
