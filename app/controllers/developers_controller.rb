@@ -6,8 +6,8 @@ class DevelopersController < ApplicationController
   # GET /developers
   # GET /developers.json
   def index
-    @developerearchform = DeveloperSearchForm.new(search_params)
-    @developers = @developerearchform.search
+    @developer_search_form = DeveloperSearchForm.new(search_params)
+    @developers = @developer_search_form.search
   end
 
   # GET /developers/1
