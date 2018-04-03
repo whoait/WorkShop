@@ -6,26 +6,27 @@ namespace :dev do
   desc 'Generate test data'
   task :generate_data, [:number] => :environment do |_, args|
     setargs(args)
-    language_codes = %w[vn en jp lao]
-    programming_language_codes = %w[ruby php java net assembly]
+
+    %w[vn en jp lao].each do |f|
+      Language.find_or_create_by(code: f)
+    end
+
+    %w[ruby php java net assembly].each do |f|
+      ProgrammingLanguage.find_or_create_by(name: f)
+    end
+
+    programming_languages = ProgrammingLanguage.all
+    languages = Language.all
+
     @args[:number].times do
-      email = Faker::Internet.email
-      developer = FactoryBot.create(:developer, email: email)
-      languages = language_codes.sample(rand(4))
-      languages.each do |f|
-        language = Language.find_or_create_by(code: f)
-        DeveloperLanguage.find_or_create_by(developer_id: developer.id, language_id: language.id)
-      end
-      programming_languages = programming_language_codes.sample(rand(5))
-      programming_languages.each do |f|
-        program = ProgrammingLanguage.find_or_create_by(name: f)
-        DeveloperProgrammingLanguage.find_or_create_by(developer_id: developer.id, programming_language_id: program.id)
-      end
+      FactoryBot.create :developer, email: Faker::Internet.email,
+                                    programming_languages: programming_languages.sample(rand(5)),
+                                    languages: languages.sample(rand(4))
     end
   end
 end
 
 def setargs(args)
   @args = {}
-  @args[:number] = (args.number || 1).to_i
+  @args[:number] = (args.number || 100).to_i
 end
