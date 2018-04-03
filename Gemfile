@@ -27,6 +27,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'bundler-audit', require: false
   gem 'brakeman', require: false
+  gem 'pry-rails'
 end
 
 group :development do
