@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :language do
-    code 'MyString'
+    code 'En'
   end
 end

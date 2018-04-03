@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :developer_language do
-    developer nil
-    language nil
+    developer 1
+    language 1
   end
 end
