@@ -27,20 +27,6 @@ RSpec.describe 'Developer search form', type: :system do
     expect(page).to have_content 'hoa1@gmail.com'
   end
 
-  it 'search with correct param email' do
-    fill_in 'developer_search_form[email]', with: 'hoa@gmail.com'
-    click_on 'Search'
-    expect(page).to have_content 'hoa@gmail.com'
-    expect(page).to have_content @programming_language.name
-    expect(page).to have_content @language.code
-  end
-
-  it 'search with incorrect param email' do
-    fill_in 'developer_search_form[email]', with: 'xx@gmail.com'
-    click_on 'Search'
-    expect(page).to have_no_content 'xx@gmail.com'
-  end
-
   it 'search with correct param language' do
     select 'En', from: 'developer_search_form_language_id'
     click_on 'Search'

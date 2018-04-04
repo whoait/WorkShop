@@ -20,13 +20,6 @@ RSpec.describe DeveloperSearchForm do
       end
     end
 
-    context 'with have email' do
-      it 'returns one developer' do
-        from = DeveloperSearchForm.new(email: 'hoa@gmail.com')
-        expect(from.search.size).to eq(1)
-      end
-    end
-
     context 'with have language' do
       it 'returns one developer' do
         from = DeveloperSearchForm.new(language_id: @language.id)
@@ -45,13 +38,6 @@ RSpec.describe DeveloperSearchForm do
       it 'returns one developer' do
         from = DeveloperSearchForm.new(language_id: @language.id, programming_language_id: @programming_language.id)
         expect(from.search.size).to eq(1)
-      end
-    end
-
-    context 'with no existing email' do
-      it 'returns no developer' do
-        from = DeveloperSearchForm.new(email: 'xx@gmail.com')
-        expect(from.search.size).to eq(0)
       end
     end
 
