@@ -7,12 +7,20 @@ RSpec.describe 'Api::V1::DevelopersController', type: :request do
 
   describe 'GET /api/v1/developers' do
     context 'without params' do
+      before do
+        @developer = create :developer,
+                            languages: [create(:language)],
+                            programming_languages: [create(:programming_language)]
+
+        get '/api/v1/developers'
+      end
+
       let(:programming_languages) do
         {
           data: @developer.programming_languages.map do |programming_language|
             {
-              id: programming_language.id,
-              name: programming_language.name
+              id: programming_language.id.to_s,
+              type: 'programming-languages'
             }
           end
         }
@@ -21,8 +29,8 @@ RSpec.describe 'Api::V1::DevelopersController', type: :request do
         {
           data: @developer.languages.map do |language|
             {
-              id: language.id,
-              code: language.code
+              id: language.id.to_s,
+              type: 'languages'
             }
           end
         }
@@ -37,20 +45,13 @@ RSpec.describe 'Api::V1::DevelopersController', type: :request do
                 email: developer.email
               },
               relationships: {
-                "programming-languages": programming_languages,
-                languages: languages
+                languages: languages,
+                "programming-languages": programming_languages
+
               }
             }
           end
         }
-      end
-
-      before do
-        @developer = create :developer,
-                            programming_languages: [create(:programming_language)],
-                            languages: [create(:language)]
-
-        get '/api/v1/developers'
       end
 
       it_behaves_like 'http_status_code_200_with_json'
@@ -59,12 +60,11 @@ RSpec.describe 'Api::V1::DevelopersController', type: :request do
 
   describe 'GET /api/v1/developers/:id' do
     before do
-        @developer = create :developer,
-                            languages: [create(:language)],
-                            programming_languages: [create(:programming_language)]
-                            
+      @developer = create :developer,
+                          languages: [create(:language)],
+                          programming_languages: [create(:programming_language)]
 
-        get "/api/v1/developers/#{@developer.id}"
+      get "/api/v1/developers/#{@developer.id}"
     end
 
     context 'when the developer exists' do
@@ -72,8 +72,8 @@ RSpec.describe 'Api::V1::DevelopersController', type: :request do
         {
           data: @developer.programming_languages.map do |programming_language|
             {
-              id: programming_language.id,
-              name: programming_language.name
+              id: programming_language.id.to_s,
+              type: 'programming-languages'
             }
           end
         }
@@ -82,8 +82,8 @@ RSpec.describe 'Api::V1::DevelopersController', type: :request do
         {
           data: @developer.languages.map do |language|
             {
-              id: language.id,
-              code: language.code
+              id: language.id.to_s,
+              type: 'languages'
             }
           end
         }
@@ -99,7 +99,7 @@ RSpec.describe 'Api::V1::DevelopersController', type: :request do
             relationships: {
               languages: languages,
               "programming-languages": programming_languages
-              
+
             }
           }
         }
