@@ -22,36 +22,36 @@ RSpec.describe DeveloperSearchForm do
 
     context 'with have language' do
       it 'returns one developer' do
-        from = DeveloperSearchForm.new(language_id: @language.id)
-        expect(from.search.size).to eq(1)
+        form = DeveloperSearchForm.new(language_id: @language.id)
+        expect(form.search.size).to eq(1)
       end
     end
 
     context 'with have programming_language' do
       it 'returns one developer' do
-        from = DeveloperSearchForm.new(programming_language_id: @programming_language.id)
-        expect(from.search.size).to eq(1)
+        form = DeveloperSearchForm.new(programming_language_id: @programming_language.id)
+        expect(form.search.size).to eq(1)
       end
     end
 
     context 'with have programming_language and language' do
       it 'returns one developer' do
-        from = DeveloperSearchForm.new(language_id: @language.id, programming_language_id: @programming_language.id)
-        expect(from.search.size).to eq(1)
+        form = DeveloperSearchForm.new(language_id: @language.id, programming_language_id: @programming_language.id)
+        expect(form.search.size).to eq(1)
       end
     end
 
     context 'with no existing language' do
       it 'returns no developer' do
-        from = DeveloperSearchForm.new(language_id: 10, programming_language_id: @programming_language.id)
-        expect(from.search.size).to eq(0)
+        form = DeveloperSearchForm.new(language_id: 10, programming_language_id: @programming_language.id)
+        expect(form.search.size).to eq(0)
       end
     end
 
     context 'with no existing programming_language' do
       it 'returns no developer' do
-        from = DeveloperSearchForm.new(language_id: @language.id, programming_language_id: 0)
-        expect(from.search.size).to eq(0)
+        form = DeveloperSearchForm.new(language_id: @language.id, programming_language_id: 0)
+        expect(form.search.size).to eq(0)
       end
     end
   end
