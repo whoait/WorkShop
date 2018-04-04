@@ -50,7 +50,7 @@ RSpec.describe DeveloperSearchForm do
 
     context 'with no existing programming_language' do
       it 'returns no developer' do
-        form = DeveloperSearchForm.new(language_id: @language.id, programming_language_id: 0)
+        form = DeveloperSearchForm.new(language_id: @language.id, programming_language_id: 'developer_params')
         expect(form.search.size).to eq(0)
       end
     end
