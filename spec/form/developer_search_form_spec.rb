@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe DeveloperSearchForm do
   describe '#search' do
     before do
-      @developer = create :developer, email: 'hoa1@gmail.com'
+      create :developer, email: 'hoa1@gmail.com'
       @language = create(:language, code: 'en')
       @programming_language = create(:programming_language, name: 'Ruby')
       create :developer,
