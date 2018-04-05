@@ -19,12 +19,12 @@ namespace :dev do
     languages = Language.all
 
     @args[:number].times do
-      email_value = loop do
-        email_value = Faker::Internet.email
-        break email_value unless Developer.exists?(email: email_value)
+      email = loop do
+        email = Faker::Internet.email
+        break email unless Developer.exists?(email: email)
       end
 
-      FactoryBot.create :developer, email: email_value,
+      FactoryBot.create :developer, email: email,
                                     programming_languages: programming_languages.sample(rand(5)),
                                     languages: languages.sample(rand(4))
     end
