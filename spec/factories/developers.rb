@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :developer do
-    email 'hoa@gmail.com'
+    email { Faker::Internet.email }
   end
 end

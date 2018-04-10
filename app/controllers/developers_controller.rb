@@ -6,7 +6,8 @@ class DevelopersController < ApplicationController
   # GET /developers
   # GET /developers.json
   def index
-    @developers = Developer.all
+    @developer_search_form = DeveloperSearchForm.new(search_params)
+    @developers = @developer_search_form.search
   end
 
   # GET /developers/1
@@ -71,5 +72,10 @@ class DevelopersController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def developer_params
     params.require(:developer).permit(:email)
+  end
+
+  def search_params
+    return {} if params[:developer_search_form].blank?
+    params.require(:developer_search_form).permit(:language_id, :programming_language_id)
   end
 end
