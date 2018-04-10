@@ -28,6 +28,7 @@ group :development, :test do
   gem 'faker'
   gem 'bundler-audit', require: false
   gem 'brakeman', require: false
+  gem 'faker'
   gem 'pry-rails'
 end
 
