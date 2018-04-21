@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402160434) do
+ActiveRecord::Schema.define(version: 20180419021853) do
 
   create_table "developer_languages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "developer_id"
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 20180402160434) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_languages_on_code", unique: true
+  end
+
+  create_table "market_item_orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "item_order"
+    t.string "unit"
+    t.float "price", limit: 24
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "programming_languages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

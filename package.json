@@ -1,5 +1,5 @@
 {
-  "name": "WorkShop",
+  "name": "Restaurant",
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^3.4.1"
