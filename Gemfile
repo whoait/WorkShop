@@ -21,6 +21,7 @@ gem 'webpacker'
 gem 'active_model_serializers'
 gem 'virtus'
 gem "rename"
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
