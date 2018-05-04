@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class DevelopersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_developer, only: %i[show edit update destroy]
 
   # GET /developers
